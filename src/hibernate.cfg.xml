@@ -1,0 +1,17 @@
+<?xml version = "1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/test2</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">Admin1234!</property>
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <mapping resource="aplikacja.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>
+
+

@@ -1,0 +1,26 @@
+<?xml version = "1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="encje.Pracownik" table="pracownik">
+        <id name="ID" column="ID">
+            <generator class="increment"/>
+        </id>
+        <property name="Imie" column="Imie"/>
+        <property name="Nazwisko" column="Nazwisko"/>
+        <property name="Stawka" column="Stawka"/>
+        <property name="Ilosc_godzin" column="Ilosc_godzin"/>
+        <property name="Wynagrodzenie" column="Wynagrodzenie"/>
+        <property name="Stanowisko" column="Stanowisko"/>
+    </class>
+
+    <class name="encje.Stanowisko" table="stanowiska">
+        <id name="idstanowiska" column="idstanowiska">
+            <generator class="increment"/>
+        </id>
+        <property name="Stanowisko" column="Stanowisko"/>
+        <property name="Opis" column="Opis"/>
+    </class>
+</hibernate-mapping>
