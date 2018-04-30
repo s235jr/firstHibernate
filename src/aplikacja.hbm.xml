@@ -13,14 +13,20 @@
         <property name="Stawka" column="Stawka"/>
         <property name="Ilosc_godzin" column="Ilosc_godzin"/>
         <property name="Wynagrodzenie" column="Wynagrodzenie"/>
-        <property name="Stanowisko" column="Stanowisko"/>
+        <many-to-one name="Stanowisko" column="idstanowiska" not-null="true" insert="false" update="false"/>
     </class>
 
-    <class name="encje.Stanowisko" table="stanowiska">
+    <class name="encje.Stanowisko" table="Stanowiska">
         <id name="idstanowiska" column="idstanowiska">
             <generator class="increment"/>
         </id>
         <property name="Stanowisko" column="Stanowisko"/>
         <property name="Opis" column="Opis"/>
+        <!--<many-to-one name="Pracownik" column="Stanowisko" not-null="true" insert="false" update="false"/>-->
+
+        <!--<set name="Pracownik" cascade="persist" inverse="true">
+            <key column="idstanowiska" not-null="true" />
+            <one-to-many class="Pracownik" />
+        </set>-->
     </class>
 </hibernate-mapping>

@@ -1,7 +1,5 @@
 package encje;
 
-import java.util.Set;
-
 public class Pracownik {
     private int ID;
     private String Imie;
@@ -9,8 +7,8 @@ public class Pracownik {
     private int Stawka;
     private int Ilosc_godzin;
     private int Wynagrodzenie;
-    private int Stanowisko;
-    private Set<Stanowisko> stanowisko;
+    private int idstanowiska;
+    private Stanowisko Stanowisko;
 
     public int getID() {
         return ID;
@@ -60,15 +58,19 @@ public class Pracownik {
         Wynagrodzenie = wynagrodzenie;
     }
 
-    public int getStanowisko() {
+    public Stanowisko getStanowisko() {
         return Stanowisko;
     }
 
-    public void setStanowisko(int stanowisko) {
+    public void setStanowisko(Stanowisko stanowisko) {
         Stanowisko = stanowisko;
     }
 
-    public void setStanowisko(Set<encje.Stanowisko> stanowisko) {
-        this.stanowisko = stanowisko;
+    public int getIdstanowiska() {
+        return idstanowiska;
+    }
+
+    public void setIdstanowiska(int idstanowiska) {
+        this.idstanowiska = idstanowiska;
     }
 }

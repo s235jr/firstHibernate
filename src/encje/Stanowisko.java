@@ -1,10 +1,12 @@
 package encje;
 
+import java.util.Set;
+
 public class Stanowisko {
     private int idstanowiska;
     private String Stanowisko;
     private String Opis;
-    private Pracownik pracownik;
+    private Set<Pracownik> pracownik;
 
     public int getIdstanowiska() {
         return idstanowiska;
@@ -30,11 +32,11 @@ public class Stanowisko {
         Opis = opis;
     }
 
-    public Pracownik getPracownik() {
+    /*public Set<Pracownik> getPracownik() {
         return pracownik;
     }
 
-    public void setPracownik(Pracownik pracownik) {
+    public void setPracownik(Set<Pracownik> pracownik) {
         this.pracownik = pracownik;
-    }
+    }*/
 }
