@@ -24,23 +24,25 @@ public class Hibernate {
         //System.out.println(m);
         Transaction transaction = session.beginTransaction();
 
-        Stanowisko stanowisko = new Stanowisko();
+        /*Stanowisko stanowisko = new Stanowisko();
         stanowisko.setNazwa("Spawacz");
         stanowisko.setOpis("prace spawalnicze");
-
         Set<Pracownik> zbior = new HashSet<Pracownik>();
         Pracownik pracownik = new Pracownik();
-        pracownik.setImie("Mirek");
+        pracownik.setImie("Heniek");
         pracownik.setNazwisko("Kowalski");
-        //pracownik.setStanowisko(stanowisko);
-
-        session.persist(pracownik);
-        transaction.commit();
-
-        /*zbior.add(pracownik);
+        pracownik.setStanowisko(stanowisko);
+        zbior.add(pracownik);
         stanowisko.setPracownik(zbior);
         session.persist(stanowisko);
-
         transaction.commit();*/
+
+        Pracownik pracownik = session.get(Pracownik.class, 10);
+        System.out.println(pracownik.getImie() + " " + pracownik.getNazwisko());
+        Stanowisko stanowisko = session.get(Stanowisko.class, 6);
+        System.out.println(stanowisko.getNazwa());
+        System.out.println(stanowisko.getPracownik().iterator().next().getImie() + " " + stanowisko.getPracownik().iterator().next().getNazwisko() + " " + stanowisko.getNazwa());
+
+
     }
 }
