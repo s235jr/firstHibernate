@@ -3,40 +3,40 @@ package encje;
 import java.util.Set;
 
 public class Stanowisko {
-    private int idstanowiska;
-    private String Stanowisko;
-    private String Opis;
+    private int idstanowisko;
+    private String nazwa;
+    private String opis;
     private Set<Pracownik> pracownik;
 
-    public int getIdstanowiska() {
-        return idstanowiska;
+    public int getIdstanowisko() {
+        return idstanowisko;
     }
 
-    public void setIdstanowiska(int idstanowiska) {
-        this.idstanowiska = idstanowiska;
+    public void setIdstanowisko(int idstanowisko) {
+        this.idstanowisko = idstanowisko;
     }
 
-    public String getStanowisko() {
-        return Stanowisko;
+    public String getNazwa() {
+        return nazwa;
     }
 
-    public void setStanowisko(String stanowisko) {
-        Stanowisko = stanowisko;
+    public void setNazwa(String nazwa) {
+        this.nazwa = nazwa;
     }
 
     public String getOpis() {
-        return Opis;
+        return opis;
     }
 
     public void setOpis(String opis) {
-        Opis = opis;
+        this.opis = opis;
     }
 
-    /*public Set<Pracownik> getPracownik() {
+    public Set<Pracownik> getPracownik() {
         return pracownik;
     }
 
     public void setPracownik(Set<Pracownik> pracownik) {
         this.pracownik = pracownik;
-    }*/
+    }
 }

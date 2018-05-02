@@ -5,28 +5,23 @@
 
 <hibernate-mapping>
     <class name="encje.Pracownik" table="pracownik">
-        <id name="ID" column="ID">
+        <id name="id" column="id">
             <generator class="increment"/>
         </id>
-        <property name="Imie" column="Imie"/>
-        <property name="Nazwisko" column="Nazwisko"/>
-        <property name="Stawka" column="Stawka"/>
-        <property name="Ilosc_godzin" column="Ilosc_godzin"/>
-        <property name="Wynagrodzenie" column="Wynagrodzenie"/>
-        <many-to-one name="Stanowisko" column="idstanowiska" not-null="true" insert="false" update="false"/>
+        <property name="imie" column="imie"/>
+        <property name="nazwisko" column="nazwisko"/>
+        <many-to-one name="stanowisko" column="stanowisko"/>
     </class>
 
-    <class name="encje.Stanowisko" table="Stanowiska">
-        <id name="idstanowiska" column="idstanowiska">
+    <class name="encje.Stanowisko" table="stanowisko">
+        <id name="idstanowisko" column="idstanowisko">
             <generator class="increment"/>
         </id>
-        <property name="Stanowisko" column="Stanowisko"/>
-        <property name="Opis" column="Opis"/>
-        <!--<many-to-one name="Pracownik" column="Stanowisko" not-null="true" insert="false" update="false"/>-->
-
-        <!--<set name="Pracownik" cascade="persist" inverse="true">
-            <key column="idstanowiska" not-null="true" />
-            <one-to-many class="Pracownik" />
-        </set>-->
+        <property name="nazwa" column="nazwa"/>
+        <property name="opis" column="opis"/>
+        <set name="pracownik" cascade="persist" inverse="true">
+            <key column="id"/>
+            <one-to-many class="encje.Pracownik" />
+        </set>
     </class>
 </hibernate-mapping>
