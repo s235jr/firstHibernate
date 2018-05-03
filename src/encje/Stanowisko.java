@@ -3,17 +3,17 @@ package encje;
 import java.util.Set;
 
 public class Stanowisko {
-    private int idstanowisko;
+    private int idStanowiska;
     private String nazwa;
     private String opis;
     private Set<Pracownik> pracownik;
 
-    public int getIdstanowisko() {
-        return idstanowisko;
+    public int getIdStanowiska() {
+        return idStanowiska;
     }
 
-    public void setIdstanowisko(int idstanowisko) {
-        this.idstanowisko = idstanowisko;
+    public void setIdStanowiska(int idStanowiska) {
+        this.idStanowiska = idStanowiska;
     }
 
     public String getNazwa() {

@@ -5,23 +5,51 @@
 
 <hibernate-mapping>
     <class name="encje.Pracownik" table="pracownik">
-        <id name="id" column="id">
+        <id name="idPracownika" column="IdPracownika">
             <generator class="increment"/>
         </id>
-        <property name="imie" column="imie"/>
-        <property name="nazwisko" column="nazwisko"/>
-        <many-to-one name="stanowisko" column="stanowisko"/>
+        <property name="imie" column="Imie"/>
+        <property name="nazwisko" column="Nazwisko"/>
+        <many-to-one name="stanowisko" column="Stanowisko"/>
+        <set name="narzedzia" cascade="persist" inverse="true">
+            <key column="IdPracownika"/>
+                <one-to-many class="encje.Narzedzia" />
+        </set>
+        <!--<one-to-one name="adres" class="ecje.Adres" cascade="persist"/>-->
+
     </class>
 
     <class name="encje.Stanowisko" table="stanowisko">
-        <id name="idstanowisko" column="idstanowisko">
+        <id name="idStanowiska" column="IdStanowiska">
             <generator class="increment"/>
         </id>
-        <property name="nazwa" column="nazwa"/>
-        <property name="opis" column="opis"/>
+        <property name="nazwa" column="Nazwa"/>
+        <property name="opis" column="Opis"/>
         <set name="pracownik" cascade="persist" inverse="true">
-            <key column="id"/>
+            <key column="idPracownika"/>
             <one-to-many class="encje.Pracownik" />
         </set>
     </class>
+
+    <class name="encje.Narzedzia" table="narzedzia">
+        <id name = "idNarzedzia" column="IdNarzedzia">
+            <generator class="increment" />
+        </id>
+        <property name="typ" column="Typ"/>
+        <property name="serialNumber" column="SerialNumber" />
+        <many-to-one name="pracownik" column="Pracownik" />
+    </class>
+
+    <!--<class name="encje.Adres" table="adres">-->
+        <!--<id name="idPracownika" column="IdPracownika">-->
+            <!--<generator class="foreign">-->
+                    <!--<param name="property">pracownik</param>-->
+            <!--</generator>-->
+        <!--</id>-->
+        <!--<one-to-one name="adres" class="encje.Adres" constrained="true" />-->
+        <!--<property name="miasto" column="Miasto"/>-->
+        <!--<property name="ulica" column="Ulica"/>-->
+        <!--<property name="numerDomu" column="NumerDomu"/>-->
+    <!--</class>-->
+
 </hibernate-mapping>

@@ -1,3 +1,4 @@
+import encje.Narzedzia;
 import encje.Pracownik;
 import encje.Stanowisko;
 import org.hibernate.Session;
@@ -18,10 +19,6 @@ public class Hibernate {
         //List m = session.createQuery("SELECT pracownik.nazwisko FROM Pracownik pracownik WHERE stanowisko ='Spawacz'").list();
         //List m = session.createQuery("SELECT pracownik.Nazwisko FROM Pracownik pracownik WHERE Wynagrodzenie > 3000").list();
         //List p = session.createQuery("SELECT pracownik.Nazwisko FROM Pracownik pracownik WHERE Stanowisko = 'Spawacz'").list();
-        //System.out.println(l.size());
-        //System.out.println(l);
-        //System.out.println(p);
-        //System.out.println(m);
         Transaction transaction = session.beginTransaction();
 
         /*Stanowisko stanowisko = new Stanowisko();
@@ -37,12 +34,32 @@ public class Hibernate {
         session.persist(stanowisko);
         transaction.commit();*/
 
-        Pracownik pracownik = session.get(Pracownik.class, 10);
-        System.out.println(pracownik.getImie() + " " + pracownik.getNazwisko());
-        Stanowisko stanowisko = session.get(Stanowisko.class, 6);
-        System.out.println(stanowisko.getNazwa());
+
+        Stanowisko stanowisko = new Stanowisko();
+        stanowisko.setNazwa("Tokarz");
+        stanowisko.setOpis("prace tokarskie");
+
+        Set<Narzedzia> zbiorNarzedzi = new HashSet<Narzedzia>();
+        Narzedzia narzedzia = new Narzedzia();
+        narzedzia.setTyp("Nóż tokarski");
+        narzedzia.setSerialNumber("5354-456");
+        zbiorNarzedzi.add(narzedzia);
+
+        Set<Pracownik> zbiorPracownikow = new HashSet<Pracownik>();
+        Pracownik pracownik = new Pracownik();
+        pracownik.setImie("Waldek");
+        pracownik.setNazwisko("Okrągły");
+        pracownik.setNarzedzia(zbiorNarzedzi);
+
+        zbiorPracownikow.add(pracownik);
+        stanowisko.setPracownik(zbiorPracownikow);
+        session.persist(stanowisko);
+        transaction.commit();
+
+        pracownik = session.get(Pracownik.class, 10);
+        //System.out.println(pracownik.getImie() + " " + pracownik.getNazwisko());
+        stanowisko = session.get(Stanowisko.class, 6);
+        //System.out.println(stanowisko.getNazwa());
         System.out.println(stanowisko.getPracownik().iterator().next().getImie() + " " + stanowisko.getPracownik().iterator().next().getNazwisko() + " " + stanowisko.getNazwa());
-
-
     }
 }
