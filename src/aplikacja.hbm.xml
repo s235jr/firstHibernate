@@ -15,7 +15,7 @@
             <key column="IdPracownika"/>
                 <one-to-many class="encje.Narzedzia" />
         </set>
-        <!--<one-to-one name="adres" class="ecje.Adres" cascade="persist"/>-->
+        <one-to-one name="adres" class="encje.Adres" cascade="save-update" />
 
     </class>
 
@@ -40,16 +40,16 @@
         <many-to-one name="pracownik" column="Pracownik" />
     </class>
 
-    <!--<class name="encje.Adres" table="adres">-->
-        <!--<id name="idPracownika" column="IdPracownika">-->
-            <!--<generator class="foreign">-->
-                    <!--<param name="property">pracownik</param>-->
-            <!--</generator>-->
-        <!--</id>-->
-        <!--<one-to-one name="adres" class="encje.Adres" constrained="true" />-->
-        <!--<property name="miasto" column="Miasto"/>-->
-        <!--<property name="ulica" column="Ulica"/>-->
-        <!--<property name="numerDomu" column="NumerDomu"/>-->
-    <!--</class>-->
+    <class name="encje.Adres" table="adres">
+        <id name="idPracownika" column="IdPracownika">
+            <generator class="foreign">
+                    <param name="property">pracownik</param>
+            </generator>
+        </id>
+        <one-to-one name="pracownik" class="encje.Pracownik" constrained="true" />
+        <property name="miasto" column="Miasto"/>
+        <property name="ulica" column="Ulica"/>
+        <property name="numerDomu" column="NumerDomu"/>
+    </class>
 
 </hibernate-mapping>
